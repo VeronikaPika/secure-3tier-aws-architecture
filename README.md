@@ -10,7 +10,7 @@ By utilizing Infrastructure as Code (IaC), this configuration replaces manual we
 ## 🗺️ Network Topology Visualized
 Below is the live, verified resource map generated directly by AWS inside the London region from this Terraform blueprint:
 
-![AWS Network Resource Map](./architecture-map.png)
+![AWS Network Resource Map](./architecture-map.png.jpg)
 
 ---
 
