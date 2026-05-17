@@ -5,12 +5,12 @@ resource "aws_lb" "main_alb" {
   name               = "main-application-load-balancer"
   internal           = false # False makes it public-facing to accept internet traffic
   load_balancer_type = "application"
-  
+
   # Attach the ALB Security Group we created in step 1
-  security_groups    = [aws_security_group.alb_sg.id]
-  
+  security_groups = [aws_security_group.alb_sg.id]
+
   # Deploys the ALB endpoints across your PUBLIC subnets for high availability
-  subnets            = [aws_subnet.public[0].id, aws_subnet.public[1].id]
+  subnets = [aws_subnet.public[0].id, aws_subnet.public[1].id]
 
   tags = {
     Name = "main-alb"
@@ -59,5 +59,5 @@ resource "aws_lb_listener" "http" {
 # This links your Auto Scaling Group directly to the Load Balancer
 resource "aws_autoscaling_attachment" "asg_attachment_alb" {
   autoscaling_group_name = aws_autoscaling_group.app_asg.id
-  lb_target_group_arn   = aws_lb_target_group.app_tg.arn
+  lb_target_group_arn    = aws_lb_target_group.app_tg.arn
 }

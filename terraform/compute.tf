@@ -49,10 +49,10 @@ resource "aws_launch_template" "app_template" {
 # 3. THE ENGINE: AUTO SCALING GROUP
 # ==========================================
 resource "aws_autoscaling_group" "app_asg" {
-  name_prefix         = "main-app-asg-"
-  desired_capacity    = 2 # Deploys 2 servers out of the box for high availability
-  max_size            = 4 # Can scale up to 4 if a server gets hit hard
-  min_size            = 1 # Keeps at least 1 running to prevent downtime
+  name_prefix      = "main-app-asg-"
+  desired_capacity = 2 # Deploys 2 servers out of the box for high availability
+  max_size         = 4 # Can scale up to 4 if a server gets hit hard
+  min_size         = 1 # Keeps at least 1 running to prevent downtime
 
   # Targets your PRIVATE subnets explicitly so these instances stay hidden
   vpc_zone_identifier = [aws_subnet.private[0].id, aws_subnet.private[1].id]
