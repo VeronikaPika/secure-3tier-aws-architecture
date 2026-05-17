@@ -11,14 +11,10 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
-
-# Test Block to break the CI/CD layout engine
-resource     "aws_vpc"    
-
- "test_breaking_the_pipeline" {
-  cidr_block = "10.0.0.0/16"
+resource "aws_vpc" "failure_test" {
+cidr_block = "10.0.0.0/                                                  16"
      tags = {
-  Name = "broken-vpc-alignment-test"
+                                                 Name = "this-is-misaligned"
     }
 }
-this_will_completely_destroy_the_pipeline_validation
+
