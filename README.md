@@ -1,6 +1,6 @@
 # AWS Multi-AZ 3-Tier Network Architecture Automation
 
-## 📌 Project Overview
+##  Project Overview
 This project automates the provisioning of a secure, production-ready, highly available 3-tier network hub inside the **AWS London Region (eu-west-2)** using Terraform. 
 
 By utilizing Infrastructure as Code (IaC), this configuration replaces manual web-console click-ops with an isolated network footprint capable of hosting modern, high-security enterprise web applications.
@@ -14,7 +14,7 @@ Below is the live, verified resource map generated directly by AWS inside the Lo
 
 ---
 
-## 🛠️ Architectural Breakdown & Technical Notes
+##  Architectural Breakdown & Technical Notes
 
 ### 1. High Availability (Multi-AZ)
 The entire infrastructure is dynamically mapped across two distinct physical Availability Zones: **`eu-west-2a`** and **`eu-west-2b`**. If an entire AWS data center experiences a physical outage, the infrastructure seamlessly continues executing in the secondary zone.
@@ -32,7 +32,7 @@ The network implements a strict boundary layout, carving out 6 dedicated subnets
 
 ---
 
-## 💻 The Infrastructure Code
+##  The Infrastructure Code
 
 ### 1. Network Blueprint Configuration (`terraform/main.tf`)
 ```hcl
@@ -176,7 +176,7 @@ output "private_subnet_ids" {
   value = [for s in aws_subnet.private_app : s.id]
 }
 
-🚀 Deployment & Lifecycle Demonstration
+ Deployment & Lifecycle Demonstration
 
 Environment Verification
 
