@@ -8,7 +8,7 @@ resource "aws_db_subnet_group" "db_subnet_group" {
   description = "Database subnet group spanning multiple availability zones"
   
   # Links to your isolated database subnets from your network setup
-  subnet_ids  = [aws_subnet.database_1.id, aws_subnet.database_2.id]
+  subnet_ids  = [aws_subnet.database[0].id, aws_subnet.database[1].id]
 
   tags = {
     Name = "main-db-subnet-group"

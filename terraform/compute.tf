@@ -55,7 +55,7 @@ resource "aws_autoscaling_group" "app_asg" {
   min_size            = 1 # Keeps at least 1 running to prevent downtime
 
   # Targets your PRIVATE subnets explicitly so these instances stay hidden
-  vpc_zone_identifier = [aws_subnet.private_1.id, aws_subnet.private_2.id]
+  vpc_zone_identifier = [aws_subnet.private[0].id, aws_subnet.private[1].id]
 
   # Connects the ASG to our blueprint template
   launch_template {

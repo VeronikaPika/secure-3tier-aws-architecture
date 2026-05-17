@@ -10,7 +10,7 @@ resource "aws_lb" "main_alb" {
   security_groups    = [aws_security_group.alb_sg.id]
   
   # Deploys the ALB endpoints across your PUBLIC subnets for high availability
-  subnets            = [aws_subnet.public_1.id, aws_subnet.public_2.id]
+  subnets            = [aws_subnet.public[0].id, aws_subnet.public[1].id]
 
   tags = {
     Name = "main-alb"
