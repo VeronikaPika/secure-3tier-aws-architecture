@@ -13,7 +13,9 @@ provider "aws" {
 }
 
 # Test Block to break the CI/CD layout engine
-resource     "aws_vpc"     "test_breaking_the_pipeline" {
+resource     "aws_vpc"    
+
+ "test_breaking_the_pipeline" {
   cidr_block = "10.0.0.0/16"
      tags = {
   Name = "broken-vpc-alignment-test"
