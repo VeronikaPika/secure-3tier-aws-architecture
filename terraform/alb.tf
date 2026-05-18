@@ -20,11 +20,11 @@ resource "aws_lb" "main_alb" {
 # ==========================================
 # 2. THE ROUTING TARGET: ALB TARGET GROUP
 # ==========================================
-resource "aws_lb_target_group" "app_tg" {
+resource "aws_lb_target_group" "app" {
   name     = "main-production-app-tg"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.main.id
+  vpc_id   = aws_vpc.main.id # Links directy to VPC in main.tf
 
   # Health Check Configuration: Continuously pings the web servers
   health_check {
