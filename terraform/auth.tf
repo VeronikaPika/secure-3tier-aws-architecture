@@ -23,7 +23,7 @@ resource "aws_cognito_user_pool" "pool" {
 # 2. Cognito User Pool Client (Allows your web application to communicate with Cognito)
 resource "aws_cognito_user_pool_client" "client" {
   name         = "${var.project_name}-${var.environment}-app-client"
-  user_pool_id = aws_cognito_user_pool.pool.id
+  user_pool_id = aws_cognito_user_pool.main.id
 
   explicit_auth_flows = [
     "ALLOW_USER_PASSWORD_AUTH",
@@ -32,3 +32,4 @@ resource "aws_cognito_user_pool_client" "client" {
 
   supported_identity_providers = ["COGNITO"]
 }
+
