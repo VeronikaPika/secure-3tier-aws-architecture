@@ -1,6 +1,6 @@
 # 1. AWS Cognito User Pool (The secure database for user credentials)
-resource "aws_cognito_user_pool" "pool" {
-  name = "${var.project_name}-${var.environment}-user-pool"
+resource "aws_cognito_user_pool" "main" {
+  name = "main-production-user-pool"
 
   # Enforce basic production-grade password complexity rules
   password_policy {
@@ -15,14 +15,14 @@ resource "aws_cognito_user_pool" "pool" {
   auto_verified_attributes = ["email"]
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-user-pool"
-    Environment = var.environment
+    Name        = "main-production-user-pool"
+    Environment = "main-production-app-client"
   }
 }
 
 # 2. Cognito User Pool Client (Allows your web application to communicate with Cognito)
 resource "aws_cognito_user_pool_client" "client" {
-  name         = "${var.project_name}-${var.environment}-app-client"
+  name         = "main-production-app-client"
   user_pool_id = aws_cognito_user_pool.main.id
 
   explicit_auth_flows = [

@@ -89,8 +89,8 @@ resource "aws_subnet" "public_1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-public-1"
-    Environment = var.environment
+    Name        = "main-production-user-pool"
+    Environment = "main-production-app-client"
   }
 }
 
@@ -101,8 +101,8 @@ resource "aws_subnet" "public_2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-public-2"
-    Environment = var.environment
+    Name        = "main-production-user-pool"
+    Environment = "main-production-app-client"
   }
 }
 
@@ -113,8 +113,8 @@ resource "aws_subnet" "private_1" {
   availability_zone = "${var.aws_region}a"
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-private-1"
-    Environment = var.environment
+    Name        = "main-production-user-pool"
+    Environment = "main-production-app-client"
   }
 }
 
@@ -124,7 +124,8 @@ resource "aws_subnet" "private_2" {
   availability_zone = "${var.aws_region}b"
 
   tags = {
-    Name        = "${var.project_name}-${var.environment}-private-2"
-    Environment = var.environment
+    Name        = "main-production-user-pool"
+    Environment = "main-production-app-client"
+
   }
 }
