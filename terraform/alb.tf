@@ -21,20 +21,19 @@ resource "aws_lb" "main_alb" {
 # 2. THE ROUTING TARGET: ALB TARGET GROUP
 # ==========================================
 resource "aws_lb_target_group" "app_tg" {
-  name     = "app-instances-target-group"
+  name     = "main-production-app-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.main.id
 
   # Health Check Configuration: Continuously pings the web servers
   health_check {
+    enabled             = true
     path                = "/"
-    protocol            = "HTTP"
-    matcher             = "200" # Expects a standard "OK" response
-    interval            = 30    # Checks every 30 seconds
-    timeout             = 5     # Drops connection if no reply in 5 seconds
-    healthy_threshold   = 2     # Marks healthy after 2 successful checks
-    unhealthy_threshold = 2     # Pulls out of rotation after 2 failures
+    interval            = 30 # Checks every 30 seconds
+    timeout             = 5  # Drops connection if no reply in 5 seconds
+    healthy_threshold   = 2  # Marks healthy after 2 successful checks
+    unhealthy_threshold = 2  # Pulls out of rotation after 2 failures
   }
 }
 
